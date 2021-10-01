@@ -1,0 +1,282 @@
+*,
+*::before,
+*::after
+ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+html,
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #fff;
+    font-size: 18px;
+    line-height: 180%;
+    background-color: rgb(86, 157, 160);
+    scrollbar-width: 0;
+}
+a {text-decoration: none; color: #fff;}
+a:hover, a:active, a:focus{text-decoration: none; color: #fff;}
+.main__container {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+/* HEADER */
+header {
+    background-color:rgb(86, 157, 160);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    
+}
+nav {
+    padding: 1rem 1rem;
+}
+.header__link {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid white;
+    padding: 0.4rem;
+    margin: 0.4rem;
+    border-radius: 5%;
+    transition: all ease 0.3s;
+    text-align: center;
+}
+/* a.header__link:hover {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: rgba(250, 87, 87, 0.767);
+} */
+.header__logo {
+    margin-right: 1rem;
+    font-size: 2rem;
+    color: whitesmoke;
+    text-decoration: none;
+}
+.header__burger {
+    display: none;
+}
+
+/* #KAZAKHSTAN */
+#kazakhstan:target {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+}
+
+.popup1,
+.popup2,
+.popup3 {
+    background-color: slateblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100vh;
+    text-align: end;
+    justify-content: center;
+    align-items: center;  
+}
+.popup1 {
+    background-image: url(b1.jpeg);
+}
+.popup2 {
+    background-image: url(b2.jpeg);
+    }
+.popup3 {
+    background-image: url(b3.jpeg);
+}
+.wheretogo,
+.tastemeal,
+.listenmusic {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* menu */
+.link__container {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(86, 157, 160);
+    overflow: auto;
+    padding: 0.5rem;
+}
+.medicine, 
+.traditions, 
+.sport {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+#medicine:target,
+#traditions:target,
+#sport:target {
+    background-color: rgba(250, 87, 87, 0.767);
+    transition: all ease 1s;
+    text-align: start;
+}
+
+#medicine:target .medicine,
+#traditions:target .traditions,
+#sport:target .sport{
+    display: block;
+    width: 20rem;
+    height: 30rem;
+    border: 1px solid #fff;
+    border-radius: 2%;
+    position: absolute;
+    top: 3.8rem;
+    left: 1rem;
+    transition: all ease 1s;
+    overflow: hidden;
+}
+span {
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    display: block;
+    font-weight: normal;
+}
+.p>div {
+    overflow: hidden;
+    width: auto;
+    height: auto;
+    padding: 0 1rem 0 3rem;
+    font-weight: bolder;
+}
+.p>div:hover span {
+    opacity: 1;
+    visibility: visible;
+    display: inline;
+}
+
+/* popup */
+
+.grid {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+.grid:target {
+    opacity: 1;
+    visibility: visible;
+    transition: all ease 0.3s;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    right: 0;
+    overflow: auto;
+}
+.grid__area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;left: 0;
+}
+.grid__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 3rem 10px;
+    /* overflow: auto; */
+}
+.grid:target .grid__content {
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    /* background: rgb(139, 139, 139); */
+    align-items: center;
+    position: relative;
+    padding: 2rem 1em;
+    /* overflow: auto; */
+}
+.grid__item {
+    width: 20vh;
+    height: 30vh;
+    margin: 0.5rem;
+    border-radius: 5%;
+    overflow: hidden;
+    position: relative;
+    background: rgb(166, 167, 165);
+}
+.grid__item:active {
+    order: -1;
+    width: 50%;
+    height: 40rem;
+    border-radius: 1%;
+    overflow:visible;
+    float: right;
+}
+.grid__item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+.grid__title {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem; 
+    min-width: 15rem;
+    color: rgb(239, 235, 247);
+    font-size: 1.7em;
+    font-weight: bolder;
+    font-family:Arial, Helvetica, sans-serif;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+.grid__text {
+    position: absolute; 
+    z-index: 1;
+    left: 100%;
+    top: 0;
+    background-color: rgba(155, 155, 155, 0.98);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 5rem 0;
+    overflow: auto;
+}
+.grid__close {
+    position: fixed;
+    z-index: 1;
+    right: 1rem;
+    top: 5rem;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.466);
+}
