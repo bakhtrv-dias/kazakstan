@@ -39,7 +39,7 @@ header {
 }
 nav {
     display: flex;
-    padding: 1rem 1rem;
+    padding: 0.3rem 1rem;
 }
 .header__link {
     color: #fff;
@@ -60,11 +60,6 @@ nav {
     height: 100%;
     background-color: transparent;
 }
-/* a.header__link:hover {
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color: rgba(250, 87, 87, 0.767);
-} */
 .header__logo {
     margin-right: 1rem;
     font-size: 2rem;
@@ -87,7 +82,7 @@ nav {
     position: absolute;
     opacity: 1;
     visibility: visible;
-    top: 4rem;
+    top: 3rem;
     left: -20vh;
     width: 150vh;
     height: 100vh;
@@ -95,7 +90,9 @@ nav {
 
 
 /* #KAZAKHSTAN */
-#kazakhstan:target {
+#kazakhstan:target,
+#tastemeal:target,
+#folkmusic:target {
     opacity: 1;
     visibility: visible;
     width: 100%;
@@ -138,9 +135,9 @@ nav {
 }
 .wheretogo>a,
 .tastemeal>a,
-.listenmusic>a {
+.folkmusic>a {
     position: absolute;
-    /* z-index: 1; */
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -153,8 +150,9 @@ nav {
     background-color: rgb(86, 157, 160);
     overflow: auto;
     padding: 0.5rem;
-    display: block;
-    position: static;
+    position: absolute;
+    z-index: 1;
+
 }
 .medicine, 
 .traditions, 
@@ -182,9 +180,9 @@ nav {
     height: 30rem;
     border: 1px solid #fff;
     border-top: none;
-    border-radius: 0 2% 2% 2%;
+    border-radius: 0 1% 2% 2%;
     position: absolute;
-    top: 3.7rem;
+    top: 3rem;
     left: 0;
     transition: all ease 0.5s;
     overflow: hidden;
@@ -198,27 +196,34 @@ span {
     display: block;
     font-weight: normal;
 }
-.p>div {
+.p1>div,
+.p2>div {
     overflow: hidden;
     width: auto;
     height: auto;
     padding: 0 1rem 0 3rem;
     font-weight: bolder;
 }
-.p>div:hover span {
+.p1>div:hover>span,
+.p2>div:hover>span
+{
     opacity: 1;
     visibility: visible;
     display: inline;
 }
 
 /* popup */
-.wheretogo__grid {
+.wheretogo__grid,
+.tastemeal__table,
+.folkmusic__flexbox {
     height: 0;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
 }
-.wheretogo__grid:target {
+.wheretogo__grid:target,
+.tastemeal__table:target,
+.folkmusic__flexbox:target {
     opacity: 1;
     visibility: visible;
     transition: all ease 0.3s;
@@ -230,31 +235,36 @@ span {
     right: 0;
     overflow: auto;
 }
-.wheretogo__grid__area {
+.wheretogo__grid__area,
+.tastemeal__table__area,
+.folkmusic__flexbox__area {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;left: 0;
 }
-.wheretogo__grid__body {
+.wheretogo__grid__body, 
+.tastemeal__table__body, 
+.folkmusic__flexbox__body 
+{
     min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     padding: 3rem 10px;
-    /* overflow: auto; */
 }
-.wheretogo__grid:target .wheretogo__grid__content {
+.wheretogo__grid:target .wheretogo__grid__content,
+.tastemeal__table:target .tastemeal__table__content,
+.folkmusic__flexbox:target .folkmusic__flexbox__content
+ {
     display: flex;
     max-width: 100%;
     height: 100%;
     flex-wrap: wrap;
-    /* background: rgb(139, 139, 139); */
     align-items: center;
     position: relative;
-    padding: 2rem 1em;
-    /* overflow: auto; */
+    padding: 4rem 1em;
 }
 .wheretogo__grid__item {
     opacity: 0.8;
@@ -308,7 +318,10 @@ span {
     padding: 5rem 0;
     overflow: auto;
 }
-.wheretogo__grid__close {
+.wheretogo__grid__close,
+.tastemeal__table__close,
+.folkmusic__flexbox__close
+ {
     position: fixed;
     z-index: 1;
     right: 1rem;
@@ -318,8 +331,33 @@ span {
     color: #fff;
     font-weight: bold;
 }
+.table {
+    overflow-x: auto ;
+}
+.table-primary {
+    writing-mode: vertical-rl;
+    letter-spacing: 1rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    
+}
+.table-secondary{
+    width: 30rem;
+    height: 30rem;
+    /* min-height: 25vh; */
+}
+.table-success {
+    width: 20rem;
+    color: #fff;
+    height: 100%;
+}
 
-
+td>img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
 /* FOOTER */
 footer {
     padding: 1em;
