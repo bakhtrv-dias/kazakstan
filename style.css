@@ -19,8 +19,6 @@ body {
     background-color: rgb(86, 157, 160);
     scrollbar-width: 0;
 }
-a {text-decoration: none; color: #fff;}
-a:hover, a:active, a:focus{text-decoration: none; color: #fff;}
 .main__container {
     width: 80%;
     height: 100%;
@@ -40,10 +38,10 @@ header {
     
 }
 nav {
+    display: flex;
     padding: 1rem 1rem;
 }
 .header__link {
-    text-decoration: none;
     color: #fff;
     border: 1px solid white;
     padding: 0.4rem;
@@ -51,6 +49,16 @@ nav {
     border-radius: 5%;
     transition: all ease 0.3s;
     text-align: center;
+    position: relative;
+}
+.header__link>a,
+.header__logo>a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
 }
 /* a.header__link:hover {
     font-size: 1.2rem;
@@ -62,10 +70,29 @@ nav {
     font-size: 2rem;
     color: whitesmoke;
     text-decoration: none;
+    position: relative;
 }
 .header__burger {
     display: none;
 }
+.header__link__close {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+#medicine:target .header__link__close
+,#traditions:target .header__link__close
+,#sport:target .header__link__close {
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    top: 4rem;
+    left: -20vh;
+    width: 150vh;
+    height: 100vh;
+}
+
 
 /* #KAZAKHSTAN */
 #kazakhstan:target {
@@ -74,7 +101,6 @@ nav {
     width: 100%;
     height: 100%;
 }
-
 .popup1,
 .popup2,
 .popup3 {
@@ -84,30 +110,42 @@ nav {
     background-attachment: fixed;
     background-position: center center;
     height: 100vh;
-    text-align: end;
     justify-content: center;
     align-items: center;  
 }
 .popup1 {
+    text-align: end;
     background-image: url(b1.jpeg);
 }
 .popup2 {
+    text-align: start;
     background-image: url(b2.jpeg);
     }
 .popup3 {
+    text-align: end;
     background-image: url(b3.jpeg);
 }
 .wheretogo,
 .tastemeal,
-.listenmusic {
+.folkmusic{
     position: absolute;
+    /* z-index: 2; */
     top: 50%;
     right: 0;
     font-size: 5rem;
     text-decoration: none;
     color: #fff;
 }
-
+.wheretogo>a,
+.tastemeal>a,
+.listenmusic>a {
+    position: absolute;
+    /* z-index: 1; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 /* menu */
 .link__container {
     width: 100%;
@@ -115,15 +153,18 @@ nav {
     background-color: rgb(86, 157, 160);
     overflow: auto;
     padding: 0.5rem;
+    display: block;
+    position: static;
 }
 .medicine, 
 .traditions, 
 .sport {
-    display: none;
-    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
     height: 0;
 }
-
 #medicine:target,
 #traditions:target,
 #sport:target {
@@ -131,19 +172,21 @@ nav {
     transition: all ease 1s;
     text-align: start;
 }
-
 #medicine:target .medicine,
 #traditions:target .traditions,
 #sport:target .sport{
     display: block;
+    opacity: 1;
+    visibility: visible;
     width: 20rem;
     height: 30rem;
     border: 1px solid #fff;
-    border-radius: 2%;
+    border-top: none;
+    border-radius: 0 2% 2% 2%;
     position: absolute;
-    top: 3.8rem;
-    left: 1rem;
-    transition: all ease 1s;
+    top: 3.7rem;
+    left: 0;
+    transition: all ease 0.5s;
     overflow: hidden;
 }
 span {
@@ -169,14 +212,13 @@ span {
 }
 
 /* popup */
-
-.grid {
+.wheretogo__grid {
     height: 0;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
 }
-.grid:target {
+.wheretogo__grid:target {
     opacity: 1;
     visibility: visible;
     transition: all ease 0.3s;
@@ -188,13 +230,13 @@ span {
     right: 0;
     overflow: auto;
 }
-.grid__area {
+.wheretogo__grid__area {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;left: 0;
 }
-.grid__body {
+.wheretogo__grid__body {
     min-height: 100%;
     display: flex;
     align-items: center;
@@ -203,7 +245,7 @@ span {
     padding: 3rem 10px;
     /* overflow: auto; */
 }
-.grid:target .grid__content {
+.wheretogo__grid:target .wheretogo__grid__content {
     display: flex;
     max-width: 100%;
     height: 100%;
@@ -214,7 +256,8 @@ span {
     padding: 2rem 1em;
     /* overflow: auto; */
 }
-.grid__item {
+.wheretogo__grid__item {
+    opacity: 0.8;
     width: 20vh;
     height: 30vh;
     margin: 0.5rem;
@@ -223,21 +266,22 @@ span {
     position: relative;
     background: rgb(166, 167, 165);
 }
-.grid__item:active {
+.wheretogo__grid__item:active {
     order: -1;
     width: 50%;
     height: 40rem;
     border-radius: 1%;
+    opacity: 1;
     overflow:visible;
     float: right;
 }
-.grid__item img {
+.wheretogo__grid__item img {
     object-fit: cover;
     width: 100%;
     height: 100%;
     opacity: 0.8;
 }
-.grid__title {
+.wheretogo__grid__title {
     position: absolute;
     left: 0.5rem;
     bottom: 0.5rem; 
@@ -249,7 +293,7 @@ span {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 }
-.grid__text {
+.wheretogo__grid__text {
     position: absolute; 
     z-index: 1;
     left: 100%;
@@ -264,7 +308,7 @@ span {
     padding: 5rem 0;
     overflow: auto;
 }
-.grid__close {
+.wheretogo__grid__close {
     position: fixed;
     z-index: 1;
     right: 1rem;
@@ -274,6 +318,7 @@ span {
     color: #fff;
     font-weight: bold;
 }
+
 
 /* FOOTER */
 footer {
